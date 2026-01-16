@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinyplayerss | Hytale Modding</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="hytale-nav">
+        <div class="nav-content">
+            <div class="logo-space">HyteServe by TINYPLAYERSS</div>
+            <div class="nav-links">
+                <a href="#" onclick="switchCategory('modlist.json', this)" class="active">MODS</a>
+                <a href="#" onclick="switchCategory('maplist.json', this)">CUSTOM MAPS</a>
+                <a href="#" onclick="switchCategory('bloglist.json', this)">BLOG</a>
+                <a href="#" onclick="switchCategory('wikihytale.json', this)">WIKI</a>
+                
+                <a href="https://github.com/tinyplayerss" target="_blank">GITHUB</a>
+                <a href="javascript:void(0)" onclick="openDonation()" class="donate-nav-btn">DONATE</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">TINY'S HYTALE MODS</h1>
+            <p class="hero-subtitle">High-quality custom content for the Orbis community.</p>
+            <div class="hero-buttons">
+                <a href="#" onclick="switchCategory('modlist.json', this)" class="hero-btn active">MODS</a>
+                <a href="#" onclick="switchCategory('maplist.json', this)" class="hero-btn">CUSTOM MAPS</a>
+                <a href="#" onclick="switchCategory('bloglist.json', this)" class="hero-btn">BLOG</a>
+                <a href="#" onclick="switchCategory('wikihytale.json', this)" class="hero-btn">WIKI</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="content-wrapper">
+
+        <div class="support-container">
+                <p class="support-text">WANT TO SUPPORT MY RESEARCH?</p>
+                <a href="https://www.effectivegatecpm.com/xvr3q7tcw?key=2108d80a58480f9529de9d372d9f513d" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="support-btn">
+                CLICK TO VISIT SPONSOR
+                </a>
+                <span class="support-note">Opens in a new tab - Helps buy Hytale!</span>
+            </div>
+        
+        <div id="main-view">
+            <div class="main-layout">
+                
+                <aside class="sidebar">
+                    <div class="filter-group">
+                        <h4>Search</h4>
+                        <input type="text" id="search-input" class="search-box" placeholder="Search">
+                    </div>
+
+                    <div id="filter-section" class="filter-group">
+                        <h4>Filter by Type</h4>
+                        </div>
+
+                    <button class="back-btn" style="width: 100%; margin-top: 20px;" onclick="location.reload()">RESET FILTERS</button>
+                </aside>
+
+                <div class="list-container" style="flex-grow: 1;">
+                    <div id="mod-grid" class="grid-container">
+                        </div>
+                    <div id="pagination" class="pagination-nav">
+                        </div>
+                </div>
+
+            </div>
+            <div class="support-container">
+                <p class="support-text">WANT TO SUPPORT MY RESEARCH?</p>
+                <a href="https://www.effectivegatecpm.com/xvr3q7tcw?key=2108d80a58480f9529de9d372d9f513d" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="support-btn">
+                CLICK TO VISIT SPONSOR
+                </a>
+                <span class="support-note">Opens in a new tab - Helps buy Hytale!</span>
+            </div>
+
+    <style>
+    .support-container {
+        background: rgba(20, 20, 25, 0.8);
+        border: 1px solid var(--hytale-gold);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        margin: 25px 0;
+    }
+
+    .support-text {
+        color: var(--hytale-gold);
+        font-size: 0.75rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    .support-btn {
+        background: var(--hytale-gold);
+        color: #000 !important;
+        padding: 12px 20px;
+        text-decoration: none;
+        font-weight: 800;
+        border-radius: 4px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .support-btn:hover {
+        background: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(243, 174, 50, 0.3);
+    }
+
+    .support-note {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.65rem;
+        color: #777;
+    }
+    </style>
+        </div>
+
+        <div id="details-view" style="display: none;">
+            </div>
+
+    </section>
+
+    <script src="HyteEngine.js"></script>
+</body>
+</html>
