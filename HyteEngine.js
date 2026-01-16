@@ -13,7 +13,7 @@ const modsPerPage = 10;
 let currentSource = 'modlist.json'; 
 
 // --- CONFIGURATION ---
-const GITHUB_REPO = "tinyplayerss/mods-for-hytale"; 
+const GITHUB_REPO = "tinyplayerss/hyteserve"; 
 
 /**
  * HELPER: Checks if a date string is from the last 24 hours
