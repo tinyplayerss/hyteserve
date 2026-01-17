@@ -10,5 +10,17 @@
     "version": "1.0.1",
     "tags": ["Byproduct", "Production", "Smelting"],
     "gallery": ["https://images2.imgbox.com/f1/04/abTF1WDT_o.png", "https://images2.imgbox.com/d3/cb/At4C5N15_o.png"]
+    },
+    {
+    "title": "Kweebec Merchant Plus",
+    "author": "tinyplayerss",
+    "date": "2026-01-18",
+    "description": "Look at the Trade selections! and Trade when You find Kweebec Merchant",
+    "longDescription": "Enhance your journey with a specialized Kweebec Trading system! This mod overhauls the default Kweebec Merchant to act as a vital source for Life Essence and essential survival gear.<br><br><b>WORK IN PROGRESS (WIP):</b> This mod is in active development. I will be adding more botanical trades and refining the balance over time!<br><br><b>Featured Reward:</b><br>- <b>The Big Backpack:</b> A powerful early-to-mid game upgrade! This high-value item is now available through the merchant to help you carry more resources on your adventures.<br><br><b>Current Trade Selections:</b><br>- <b>Fixed Trades:</b> Exchange Tree Sap (20), Fiber (5), and Bamboo (25) for Life Essence.<br>- <b>Specialty Items:</b> Trade rare Poison Fruit for 75 Life Essence or a Crude Bed for Concentrated Life Essence.<br>- <b>Rotating Pool:</b> A dynamic slot that refreshes every 3 days with bulk Mushroom Flatcaps, Mushroom Salads, or a rare high-tier trade for 100 Boom Powder.<br><br><b>Have a Suggestion?</b> I want to hear from you! If there are specific plant-based items or resources you think should be tradable for Life Essence, please leave a comment. Your suggestions could be included in the next update!<br><br>As a note: I had friends test this mod and it works. Since I do not own the Standard Edition of Hytale, I’m unable to live-code the mod in-game, so I used online resources during development. My goal is to eventually develop more mods directly from the game rather than relying on external tools.<br><br><b>Installation Guide:</b><br><br>1. Download the mod using the 'Download File' button.<br>2. Locate your Hytale installation directory.<br>3. Open the UserData/Mods folder.<br>4. Drag and drop the extracted mod folder into 'Mods'.<br>5. In the Hytale World menu, edit your world and enable the mod in the list.<br>6. Join your world and find a Kweebec Merchant to start trading! <b>Note:</b> If you update the mod, you must rejoin your world to see the new trade selections.",
+    "downloadUrl": "https://drive.google.com/file/d/1EezszT0scR1_iOyQinE1LOPd2rTHhar_/view?usp=sharing",
+    "icon": "https://images2.imgbox.com/b1/3a/q4dVaicL_o.png",
+    "version": "1.0.0",
+    "tags": ["Trader+", "NPC"],
+    "gallery": ["https://images2.imgbox.com/bc/ca/CUTi6jTb_o.png"]
     }
 ]
