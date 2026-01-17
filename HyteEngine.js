@@ -1,6 +1,6 @@
 /**
  * HyteEngine.js - HyteServe Edition
- * Features: Automatic "NEW" Labels (24hr expiry), Unified Wiki/Blog Design,
+ * Features: Automatic "NEW" Labels (Latest Date Priority), Unified Wiki/Blog Design,
  * JSON-to-UI Automation, Real-time Search, and Ad-Ready Containers.
  */
 
@@ -11,20 +11,29 @@ let searchQuery = "";
 let currentPage = 1;
 const modsPerPage = 10;
 let currentSource = 'modlist.json'; 
+let newestDateInList = null; 
 
 // --- CONFIGURATION ---
 const GITHUB_REPO = "tinyplayerss/hyteserve"; 
 
 /**
- * HELPER: Checks if a date string is from the last 24 hours
+ * HELPER: Identifies the latest date in the provided array
+ */
+const findNewestDate = (data) => {
+    if (!data || data.length === 0) return null;
+    const dates = data
+        .map(item => item.date ? new Date(item.date).getTime() : 0)
+        .filter(time => !isNaN(time));
+    return dates.length > 0 ? new Date(Math.max(...dates)) : null;
+};
+
+/**
+ * HELPER: Checks if an item matches the newest date found in the list
  */
 const isNew = (dateString) => {
-    if (!dateString) return false;
-    const uploadDate = new Date(dateString);
-    const now = new Date();
-    const diff = now - uploadDate;
-    const twentyFourHours = 24 * 60 * 60 * 1000;
-    return diff > 0 && diff < twentyFourHours;
+    if (!dateString || !newestDateInList) return false;
+    const itemDate = new Date(dateString).getTime();
+    return itemDate === newestDateInList.getTime();
 };
 
 /**
@@ -35,6 +44,9 @@ const initHyteEngine = async (source = 'modlist.json') => {
         currentSource = source;
         const response = await fetch(source);
         allMods = await response.json();
+        
+        // Determine the newest date for the current source
+        newestDateInList = findNewestDate(allMods);
         
         filteredMods = [...allMods];
         
