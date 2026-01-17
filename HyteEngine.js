@@ -79,9 +79,14 @@ const renderPage = (page) => {
     const isArticleMode = currentSource === 'wikihytale.json' || currentSource === 'bloglist.json';
 
     if (paginatedMods.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 50px;">No items found.</p>`;
+        grid.style.display = "block";
+        grid.innerHTML = `<p style="text-align: center; padding: 50px;">No items found.</p>`;
     } else if (isArticleMode) {
-        // --- UNIFIED WIKI & BLOG DESIGN (Large Hero Cards) ---
+        // --- RESTORED ORIGINAL WIKI & BLOG DESIGN (Grid Layout) ---
+        grid.style.display = "grid";
+        grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(320px, 1fr))";
+        grid.style.gap = "25px";
+
         const groups = {};
         paginatedMods.forEach(item => {
             const g = item.group || (currentSource === 'bloglist.json' ? "Recent Updates" : "General");
@@ -99,18 +104,14 @@ const renderPage = (page) => {
                         return `
                             <div class="wiki-article-card" onclick="showDetails(${originalIndex})" 
                                  style="background: #1a242d; border: 1px solid #3d4d5e; border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.2s; display: flex; flex-direction: column; min-height: 420px; position: relative;">
-                                
                                 ${isRecent ? `<span style="position: absolute; top: 15px; left: 15px; background: #f3ae32; color: #000; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">NEW</span>` : ''}
-
                                 <div class="wiki-card-image" style="width: 100%; height: 200px; overflow: hidden; background: #0d1317;">
                                     <img src="${item.icon}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/400x200?text=Asset+Pending...'">
                                 </div>
-
                                 <div class="wiki-card-body" style="padding: 24px; flex-grow: 1;">
                                     <h3 style="color: #ffffff; margin: 0 0 12px 0; font-size: 1.5rem;">${item.title}</h3>
                                     <p style="color: #a0b0c0; font-size: 1rem; line-height: 1.6;">${item.description}</p>
                                 </div>
-
                                 <div style="padding: 0 24px 24px 24px;">
                                     <span class="download-btn" style="display: block; text-align: center; width: 100%; box-sizing: border-box; background: transparent; border: 2px solid #f3ae32; color: #fff; padding: 12px; border-radius: 6px; font-weight: bold;">
                                         ${currentSource === 'bloglist.json' ? 'READ POST' : 'READ MORE'}
@@ -123,24 +124,35 @@ const renderPage = (page) => {
             </div>
         `).join('');
     } else {
-        // --- MOD/MAP DESIGN (Compact Storefront Cards) ---
+        // --- MOD/MAP LIST VIEW (Vertical Stacking Layout) ---
+        grid.style.display = "flex";
+        grid.style.flexDirection = "column";
+        grid.style.gap = "20px";
+
         grid.innerHTML = paginatedMods.map((mod) => {
             const originalIndex = allMods.indexOf(mod);
             const isRecent = isNew(mod.date);
-            const tagLabels = mod.tags ? mod.tags.map(tag => `<span class="card-tag-label">${tag.toUpperCase()}</span>`).join('') : '';
+            const tagLabels = mod.tags ? mod.tags.map(tag => `<span class="card-tag-label" style="background: rgba(243,174,50,0.1); color:#f3ae32; border:1px solid rgba(243,174,50,0.3); padding: 2px 8px; border-radius:4px; font-size:0.65rem; margin-right:5px; font-weight:bold;">${tag.toUpperCase()}</span>`).join('') : '';
 
             return `
-                <div class="mod-card" onclick="showDetails(${originalIndex})" style="position: relative;">
+                <div class="mod-card" onclick="showDetails(${originalIndex})" 
+                     style="display: flex; align-items: center; width: 100%; min-height: 140px; background: #1a242d; border: 1px solid #3d4d5e; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;">
+                    
                     ${isRecent ? `<span style="position: absolute; top: 10px; right: 10px; background: #f3ae32; color: #000; padding: 2px 8px; border-radius: 3px; font-size: 0.7rem; font-weight: bold; z-index: 5;">NEW</span>` : ''}
-                    <img src="${mod.icon}" class="mod-icon" alt="${mod.title}">
-                    <div class="mod-info">
-                        <h3 class="mod-title">${mod.title}</h3>
-                        <span class="mod-author">by ${mod.author}</span>
-                        <p class="mod-desc">${mod.description}</p>
+                    
+                    <div style="width: 120px; min-width: 120px; height: 120px; margin: 10px; border: 2px solid #f3ae32; overflow: hidden; background: #0d1317;">
+                        <img src="${mod.icon}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/120?text=Pending'">
                     </div>
-                    <div class="download-container">
-                        <div class="card-tag-wrapper">${tagLabels}</div>
-                        <span class="download-btn">VIEW DETAILS</span>
+
+                    <div style="flex-grow: 1; padding: 10px 20px;">
+                        <h3 style="margin: 0; color: #f3ae32; font-size: 1.5rem;">${mod.title}</h3>
+                        <div style="font-size: 0.8rem; color: #a0b0c0; margin-bottom: 8px;">BY ${mod.author.toUpperCase()}</div>
+                        <div style="margin-bottom: 8px;">${tagLabels}</div>
+                        <p style="margin: 0; color: #cbd5e0; font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${mod.description}</p>
+                    </div>
+
+                    <div style="padding: 20px; min-width: 160px; background: rgba(0,0,0,0.2); height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <span class="download-btn" style="border: 2px solid #f3ae32; color: #f3ae32; padding: 10px; width: 100%; text-align: center; border-radius: 4px; font-weight: bold;">VIEW DETAILS</span>
                     </div>
                 </div>
             `;

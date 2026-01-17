@@ -1,14 +1,14 @@
 [
     {
-    "title": "W.I.P - Underconstruction",
+    "title": "MoreCharcoal",
     "author": "tinyplayerss",
-    "date": "YYYY-MM-DD",
-    "description": "Come back when this Page is Updated.",
-    "longDescription": "Come back when this Page is Updated.",
-    "downloadUrl": "YOUR_GOOGLE_DRIVE_LINK_HERE",
-    "icon": "https://placehold.co/400",
-    "version": "1.0",
-    "tags": [],
+    "date": "2026-01-17",
+    "description": "Gain more Charcoal from Burning Any Fuel Source!",
+    "longDescription": "Smelt any fuel source in the Campfire Bench and produce more charcoal than usual.<br><br>This mod is still in early development, so be aware that using certain fuel sources may behave differently than expected. For example:<br>- Sticks.<br>- Any wood log.<br>- Etc.<br><br>As a note: I had friends test this mod and it works. Since I do not own the Standard Edition of Hytale, I’m unable to live-code the mod in-game, so I used online resources during development. My goal is to eventually develop more mods directly from the game rather than relying on external tools.<br><br><b>Installation Guide:</b><br><br>1. Download the mod using the 'Download File' button provided on this page.<br><br>2. Locate your Hytale installation directory.<br><br>3. Open the UserData folder inside the Hytale directory. You should see a 'Mods' folder.<br><br>4. Drag and drop the extracted mod into the 'Mods' folder, then launch the game using the Hytale Launcher.<br><br>5. To enable the mod, go to your Worlds menu, right-click a world to edit it, and find the mod list under the world thumbnail. Check the box to enable the mod and save your changes.<br><br>6. Join the world where the mod is enabled, use your default Campfire, burn any fuel source, and you’ll see that using 2 fuel items produces 5 charcoal.",
+    "downloadUrl": "https://drive.google.com/file/d/1y0eOaJQ-2qMlbeX7dXXbUBTVxF8oAtw8/view?usp=sharing",
+    "icon": "https://images2.imgbox.com/f2/c0/ITCZ9vRk_o.png",
+    "version": "1.0.0",
+    "tags": ["Byproduct", "Production", "Smelting"],
     "gallery": []
     }
 ]
