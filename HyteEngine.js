@@ -308,6 +308,60 @@ const loadUtterances = (identifier) => {
     container.appendChild(script);
 };
 
+/**
+ * HyteEngine SEO Module
+ * Automatically pulls tags from JSON files and updates Site Metadata
+ */
+async function updateSiteSEO() {
+    const dataSources = [
+        'modlist.json',
+        'hytalewiki.json',
+        'bloglist.json',
+        'maplist.json'
+    ];
+
+    // Using a Set to ensure we don't have duplicate keywords
+    let keywordLibrary = new Set(["Hytale", "Modding", "HyteServe"]);
+
+    try {
+        // Fetch all files at once for speed
+        const results = await Promise.allSettled(
+            dataSources.map(url => fetch(url).then(res => res.json()))
+        );
+
+        results.forEach(result => {
+            if (result.status === 'fulfilled' && Array.isArray(result.value)) {
+                result.value.forEach(item => {
+                    // Check if the item has a "tags" array
+                    if (item.tags && Array.isArray(item.tags)) {
+                        item.tags.forEach(tag => {
+                            if (tag.length > 2) { // Only add meaningful tags
+                                keywordLibrary.add(tag.trim());
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
+        // Convert the library to a comma-separated string
+        const finalKeywords = Array.from(keywordLibrary).join(', ');
+
+        // Update the HTML Meta Tag
+        const metaTag = document.getElementById('dynamic-seo-tags');
+        if (metaTag) {
+            metaTag.setAttribute('content', finalKeywords);
+            // console.log("SEO Engine: Tags synchronized successfully.");
+        }
+
+    } catch (err) {
+        console.error("SEO Engine Error:", err);
+    }
+}
+
+// Initialize SEO update on load
+document.addEventListener('DOMContentLoaded', updateSiteSEO);
+
 const renderControls = () => {
     const nav = document.getElementById("pagination");
     if (!nav) return;
@@ -326,6 +380,22 @@ const renderControls = () => {
     for (let i = 1; i <= totalPages; i++) nav.appendChild(createBtn(i, i, i === currentPage));
     nav.appendChild(createBtn('Last', totalPages, false, currentPage === totalPages));
 };
+
+/**
+ * HyteEngine Social Preview Sync
+ * Ensures the preview URL stays accurate to the current window
+ */
+function syncSocialPreview() {
+    const currentUrl = window.location.href;
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    
+    if (ogUrl) {
+        ogUrl.setAttribute('content', currentUrl);
+    }
+}
+
+// Run after the page loads
+document.addEventListener('DOMContentLoaded', syncSocialPreview);
 
 window.openDonation = () => window.open('https://paypal.me/2players1Gamer', '_blank');
 
