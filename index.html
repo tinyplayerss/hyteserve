@@ -6,6 +6,63 @@
     <title>Tinyplayerss | Hytale Modding</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styling to match your Gold/Dark theme */
+        .hyteserve-ad-container {
+            width: 728px; /* Strict width for the 728x90 ad */
+            margin: 30px auto;
+            background: #0d1317;
+            border: 2px solid #f3ae32;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .ad-top-bar {
+            background: rgba(243, 174, 50, 0.1);
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid rgba(243, 174, 50, 0.3);
+        }
+
+        .ad-title {
+            color: #f3ae32;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .ad-content-frame {
+            width: 728px;
+            height: 90px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Styling the iframe wrap directly */
+        .ad-content-frame iframe {
+            width: 728px;
+            height: 90px;
+            border: none;
+            display: block;
+            background: #000;
+        }
+
+        .ad-bottom-bar {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .ad-bottom-bar p {
+            color: #4a5a6a;
+            font-size: 0.6rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,27 +97,34 @@
     <section class="content-wrapper">
 
         <div class="hyteserve-ad-container">
-        <div class="ad-top-bar">
-            <span class="ad-title">SPONSOR - PLEASE ALLOW ADS</span>
-        </div>
-
-        <div class="ad-content-frame">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'e57b55adb71aa173be408ba75e7a6c28',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="https://www.highperformanceformat.com/e57b55adb71aa173be408ba75e7a6c28/invoke.js"></script>
-                </div>
-
+            <div class="ad-top-bar">
+                <span class="ad-title">SPONSOR - PLEASE ALLOW ADS</span>
+            </div>
+            <div class="ad-content-frame">
+                <iframe 
+                    sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox" 
+                    width="728" 
+                    height="90" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    srcdoc="
+                        <body style='margin:0; background:#000; display:flex; justify-content:center; align-items:center;'>
+                            <script type='text/javascript'>
+                                atOptions = {
+                                    'key' : 'e57b55adb71aa173be408ba75e7a6c28',
+                                    'format' : 'iframe',
+                                    'height' : 90,
+                                    'width' : 728,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type='text/javascript' src='https://www.highperformanceformat.com/e57b55adb71aa173be408ba75e7a6c28/invoke.js'></script>
+                        </body>">
+                </iframe>
+            </div>
             <div class="ad-bottom-bar">
                 <p>Your support helps keep our Hytale Research active.</p>
             </div>
-        </div>
         </div>
         
         <div id="main-view">
@@ -74,93 +138,51 @@
 
                     <div id="filter-section" class="filter-group">
                         <h4>Filter by Type</h4>
-                        </div>
+                    </div>
 
                     <button class="back-btn" style="width: 100%; margin-top: 20px;" onclick="location.reload()">RESET FILTERS</button>
                 </aside>
 
                 <div class="list-container" style="flex-grow: 1;">
-                    <div id="mod-grid" class="grid-container">
-                        </div>
-                    <div id="pagination" class="pagination-nav">
-                        </div>
+                    <div id="mod-grid" class="grid-container"></div>
+                    <div id="pagination" class="pagination-nav"></div>
                 </div>
 
             </div>
+
             <div class="hyteserve-ad-container">
-        <div class="ad-top-bar">
-            <span class="ad-title">SPONSOR - PLEASE ALLOW ADS</span>
-        </div>
-
-        <div class="ad-content-frame">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'e57b55adb71aa173be408ba75e7a6c28',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="https://www.highperformanceformat.com/e57b55adb71aa173be408ba75e7a6c28/invoke.js"></script>
+                <div class="ad-top-bar">
+                    <span class="ad-title">SPONSOR - PLEASE ALLOW ADS</span>
                 </div>
-
-            <div class="ad-bottom-bar">
-                <p>Your support helps keep our Hytale Research active.</p>
+                <div class="ad-content-frame">
+                    <iframe 
+                        sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox" 
+                        width="728" 
+                        height="90" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        srcdoc="
+                            <body style='margin:0; background:#000; display:flex; justify-content:center; align-items:center;'>
+                                <script type='text/javascript'>
+                                    atOptions = {
+                                        'key' : 'e57b55adb71aa173be408ba75e7a6c28',
+                                        'format' : 'iframe',
+                                        'height' : 90,
+                                        'width' : 728,
+                                        'params' : {}
+                                    };
+                                </script>
+                                <script type='text/javascript' src='https://www.highperformanceformat.com/e57b55adb71aa173be408ba75e7a6c28/invoke.js'></script>
+                            </body>">
+                    </iframe>
+                </div>
+                <div class="ad-bottom-bar">
+                    <p>Your support helps keep our Hytale Research active.</p>
+                </div>
             </div>
         </div>
 
-<style>
-/* Styling to match your Gold/Dark theme */
-.hyteserve-ad-container {
-    width: 728px; /* Strict width for the 728x90 ad */
-    margin: 30px auto;
-    background: #0d1317;
-    border: 2px solid #f3ae32;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.ad-top-bar {
-    background: rgba(243, 174, 50, 0.1);
-    padding: 5px;
-    text-align: center;
-    border-bottom: 1px solid rgba(243, 174, 50, 0.3);
-}
-
-.ad-title {
-    color: #f3ae32;
-    font-size: 0.7rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.ad-content-frame {
-    width: 728px;
-    height: 90px;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ad-bottom-bar {
-    padding: 5px;
-    text-align: center;
-}
-
-.ad-bottom-bar p {
-    color: #4a5a6a;
-    font-size: 0.6rem;
-    margin: 0;
-    text-transform: uppercase;
-}
-</style>
-        </div>
-
-        <div id="details-view" style="display: none;">
-            </div>
+        <div id="details-view" style="display: none;"></div>
 
     </section>
 
