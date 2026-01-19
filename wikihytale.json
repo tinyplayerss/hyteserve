@@ -1,12 +1,12 @@
 [
   {
-    "title": "W.I.P - Underconstruction",
-    "group": "",
+    "title": "Dear Hypixel Studios",
+    "group": "Hypixel Studios",
     "author": "tinyplayerss",
-    "date": "YYYY-MM-DD",
-    "icon": "https://placehold.co/600x400",
-    "description": "Come back when this Page is Updated.",
-    "longDescription": "Come back when this Page is Updated.",
-    "tags": []
+    "date": "2026-01-19",
+    "icon": "https://cdn.hytale.com/5c11705ca8abd90012df9419_hytale_portal.jpg",
+    "description": "Features we need added to Hytale ASAP!",
+    "longDescription": "The first Question <br><br>- Will Hytales Engine in the future be able to Include image/texture based Transparency for Example <br>- If the Texture/Image is Transparent using a Custom color then it should be able to Render as that Transparent Model or Texture image natively, The Alpha Blend functions and Transparency Properties do not Apply to Textures with Elements opacity set to Below 100% Opacity. <br><br> If these Features could be Added in the Future or Fixed, I and the Rest of the Hytale Mod Makers and Pack Makers Community would be Very Happy!",
+    "tags": ["Hytale", "Features / Fixes"]
   }
 ]
