@@ -22,5 +22,18 @@
     "version": "1.0.0",
     "tags": ["Trader+", "NPC"],
     "gallery": ["https://images2.imgbox.com/bc/ca/CUTi6jTb_o.png"]
+    },
+    {
+    "title": "Adds Glass Blocks",
+    "author": "tinyplayerss",
+    "date": "2026-01-19",
+    "description": "A high-quality building mod adding 5 unique glass variants with custom frames and overgrown textures.",
+    "longDescription": "Transform your builds with the Aesthetic Glass Expansion! This mod moves beyond basic glass by providing a set of 5 specialized variants designed for high-end architecture and environmental storytelling.<br><br><b>Included Glass Variants:</b><br>- <b>Normal Glass Block:</b> The standard high-definition framed window for everyday builds.<br>- <b>Stone Glass Block:</b> A heavy-duty variant featuring a reinforced stone-style frame for industrial or dwarven designs.<br>- <b>Mossy Glass Block:</b> A fan-favorite aesthetic block featuring creeping vines, forest overgrowth, and a unique color-gradient reflection.<br>- <b>Clear Glass (Minecraft Style):</b> A borderless, seamless variant designed for massive floor-to-ceiling windows and unobstructed views.<br>- <b>Diamond Glass Block:</b> Features an elegant geometric diamond frame, perfect for cathedrals, palaces, and decorative interiors.<br><br><b>Credits & Special Thanks:</b><br>A huge thank you to <b>Blockhead1800</b>, who was instrumental in making this mod a reality! Their technical expertise and work on the underlying systems were responsible for making these glass variants fully functional in-game.<br><br><b>Future Roadmap (Coming Soon):</b><br>As development continues and my pixel art techniques evolve, I will be introducing more advanced glass types, including:<br>- <b>Stained Glass Murals:</b> Hand-painted decorative scenes for grand halls.<br>- <b>Etched & Frosted Patterns:</b> Intricate sandblasted designs for modern privacy.<br>- <b>Cracked & Weathered Variants:</b> Specialized textures for post-apocalyptic or ancient builds.<br>- <b>Reinforced Wired Glass:</b> Industrial-grade safety glass with metallic mesh inlays.<br><br><b>Key Features:</b><br>- Full 32px density matching Hytale’s vanilla art style.<br><br><b>Installation Guide:</b><br>1. Download the mod and locate your Hytale installation directory.<br>2. Drag the extracted folder into <b>UserData/Mods</b>.<br>3. Enable 'Adds Glass Blocks' in your World Edit menu.<br>4. Find the new blocks in your Builder's Workbench! And Start Decorating your Base or Houses!",
+    "downloadUrl": "https://drive.google.com/file/d/1AB6ZBFB5aJh9pGIg1r5AGiTo4p-pLyr7/view?usp=sharing",
+    "icon": "https://images2.imgbox.com/19/66/yUlDPn4f_o.png",
+    "version": "1.0.0",
+    "tags": ["New Blocks", "Deco", "Glass", "Building"],
+    "gallery": ["https://images2.imgbox.com/66/64/3P6HXAOv_o.png", "https://images2.imgbox.com/0b/0c/nte6Mc1g_o.png"]
     }
 ]
+
