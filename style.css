@@ -381,6 +381,7 @@ body {
     height: 300px;
     object-fit: cover;
     border: 1px solid #3d4d5e;
+    border-radius: 10px;
 }
 
 .long-desc {
