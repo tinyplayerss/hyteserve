@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Discord",
+    "icon": "fa-brands fa-discord",
+    "url": "https://discord.gg/wh8QgpZc",
+    "counterApi": "https://discord.com/api/v9/invites/3XTc3rWH93?with_counts=true",
+    "counterField": "approximate_member_count",
+    "displayCounter": true
+  },
+  {
+    "name": "YouTube",
+    "icon": "fa-brands fa-youtube",
+    "url": "https://www.youtube.com/@HyteServe",
+    "staticCount": 1280,
+    "displayCounter": true
+  }
+]

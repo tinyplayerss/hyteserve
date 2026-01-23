@@ -176,12 +176,23 @@ const renderPage = (page) => {
 /**
  * Generates the Detailed View
  */
-const showDetails = (modIndex) => {
+const showDetails = (modIndex, skipPush = false) => {
     const mod = allMods[modIndex];
     const mainView = document.getElementById("main-view");
     const detailsView = document.getElementById("details-view");
     const isBlog = currentSource === 'bloglist.json';
     const isWiki = currentSource === 'wikihytale.json';
+
+    if (!skipPush) {
+        const slug = (mod.slug || mod.title)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "");
+
+        const url = new URL(window.location);
+        url.searchParams.set("card", slug);
+        window.history.pushState({ modIndex }, "", url);
+    }
 
     if (mainView) mainView.style.display = "none";
     if (detailsView) detailsView.style.display = "block";
@@ -190,17 +201,28 @@ const showDetails = (modIndex) => {
 
     detailsView.innerHTML = `
         <div class="details-container">
-            <button class="back-btn" onclick="renderPage(${currentPage})">← BACK TO LIST</button>
+            <button class="back-btn" onclick="closeDetails()">← BACK TO LIST</button>
+
             <div class="details-header">
                 ${(isBlog || isWiki) ? '' : `<img src="${mod.icon}" class="mod-icon" style="width:120px; height:120px;">`}
+
                 <div class="details-header-text">
                     ${(isBlog || isWiki) && mod.category ? `<span class="blog-category-tag">${mod.category}</span>` : ''}
                     <h2>${mod.title} ${(!isBlog && !isWiki) ? `<span class="mod-version-tag">${mod.version}</span>` : ''}</h2>
                     <p class="mod-author">By ${mod.author} ${mod.date ? `on ${mod.date}` : ''}</p>
-                    ${(!isBlog && !isWiki) ? `<a href="${finalDownloadUrl}" target="_blank" class="download-btn" style="display:inline-block; margin-top:20px;">DOWNLOAD FILE</a>` : ''}
+
+                    <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+                        ${(!isBlog && !isWiki) ? `<a href="${finalDownloadUrl}" target="_blank" class="download-btn">DOWNLOAD FILE</a>` : ''}
+                        <button onclick="shareCurrentCard()" class="download-btn" style="background:transparent; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-link"></i>
+                            SHARE
+                        </button>
+                    </div>
                 </div>
             </div>
+
             <hr style="border:0; border-top:1px solid #3d4d5e; margin: 30px 0;">
+
             <div class="content-body">
                 ${(isBlog || isWiki) ? `<img src="${mod.icon}" class="blog-hero-img" style="width:100%; border-radius:10px; margin-bottom:20px;">` : ''}
                 <h3>${(isBlog || isWiki) ? 'ARTICLE CONTENT' : 'DESCRIPTION'}</h3>
@@ -208,12 +230,14 @@ const showDetails = (modIndex) => {
                     ${(mod.longDescription || mod.description)}
                 </div>
             </div>
+
             ${(!isBlog && !isWiki) && mod.gallery && mod.gallery.length > 0 ? `
                 <h3>GALLERY</h3>
                 <div class="gallery-grid">
                     ${mod.gallery.map(img => `<img src="${img}" class="gallery-img">`).join('')}
                 </div>
             ` : ''}
+
             <div class="comment-wrapper">
                 <hr style="border:0; border-top:1px solid #3d4d5e; margin: 50px 0 30px;">
                 <h3 style="color: #f3ae32;">COMMENTS & DISCUSSIONS</h3>
@@ -221,9 +245,11 @@ const showDetails = (modIndex) => {
             </div>
         </div>
     `;
+
     loadUtterances(mod.title);
     window.scrollTo({ top: 400, behavior: 'smooth' });
 };
+
 
 /**
  * Helper: Google Drive Direct Links
@@ -307,6 +333,88 @@ const loadUtterances = (identifier) => {
     script.onload = () => container.querySelector('p')?.remove();
     container.appendChild(script);
 };
+
+// --- Socials Floating Panel (Simplified) ---
+const renderFloatingSocials = async () => {
+    const containerId = "floating-socials";
+    let container = document.getElementById(containerId);
+
+    if (!container) {
+        container = document.createElement("div");
+        container.id = containerId;
+        container.style.position = "fixed";
+        container.style.top = "60px";
+        container.style.right = "20px";
+        container.style.display = "flex";
+        container.style.flexDirection = "column";
+        container.style.gap = "10px";
+        container.style.zIndex = "999";
+        document.body.appendChild(container);
+    }
+
+    try {
+        const res = await fetch("socialslist.json");
+        const socials = await res.json();
+
+        container.innerHTML = ""; // clear existing
+
+        for (const social of socials) {
+            const btn = document.createElement("a");
+            btn.href = social.url;
+            btn.target = "_blank";
+            btn.style.display = "flex";
+            btn.style.alignItems = "center";
+            btn.style.gap = "6px";
+            btn.style.padding = "8px 12px";
+            btn.style.background = "#1a242d";
+            btn.style.color = "#f3ae32";
+            btn.style.borderRadius = "6px";
+            btn.style.fontWeight = "bold";
+            btn.style.textDecoration = "none";
+            btn.style.fontSize = "0.95rem";
+            btn.style.transition = "all 0.2s";
+            btn.onmouseover = () => { btn.style.background = "#f3ae32"; btn.style.color = "#000"; };
+            btn.onmouseout = () => { btn.style.background = "#1a242d"; btn.style.color = "#f3ae32"; };
+
+            const icon = document.createElement("i");
+            icon.className = social.icon;
+            btn.appendChild(icon);
+
+            const label = document.createElement("span");
+            label.innerText = social.name;
+            btn.appendChild(label);
+
+            // Only Discord gets a live counter
+            if (social.name.toLowerCase() === "discord" && social.counterApi) {
+                const counterSpan = document.createElement("span");
+                counterSpan.style.marginLeft = "6px";
+                counterSpan.innerText = "...";
+
+                fetch(social.counterApi)
+                    .then(r => r.json())
+                    .then(data => {
+                        const keys = social.counterField.split(".");
+                        let value = data;
+                        for (const k of keys) value = value?.[k];
+                        counterSpan.innerText = value ?? "-";
+                    })
+                    .catch(() => counterSpan.innerText = "-");
+
+                btn.appendChild(counterSpan);
+            }
+
+            container.appendChild(btn);
+        }
+    } catch (err) {
+        console.error("Failed to load socials.json:", err);
+    }
+};
+
+
+// Run after engine initializes
+document.addEventListener("DOMContentLoaded", renderFloatingSocials);
+
+
 
 /**
  * HyteEngine SEO Module
@@ -393,6 +501,98 @@ function syncSocialPreview() {
         ogUrl.setAttribute('content', currentUrl);
     }
 }
+
+function closeDetails() {
+    const mainView = document.getElementById("main-view");
+    const detailsView = document.getElementById("details-view");
+
+    if (mainView) mainView.style.display = "block";
+    if (detailsView) detailsView.style.display = "none";
+
+    const url = new URL(window.location);
+    url.searchParams.delete("card");
+    window.history.pushState({}, "", url);
+}
+
+function shareCurrentCard() {
+    const url = window.location.href;
+
+    if (navigator.share) {
+        navigator.share({
+            title: "HyteServe",
+            url: url
+        });
+    } else {
+        navigator.clipboard.writeText(url);
+        alert("Share link copied!");
+    }
+}
+
+window.addEventListener("load", () => {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("card");
+
+    if (!slug) return;
+
+    const index = allMods.findIndex(mod => {
+        const s = (mod.slug || mod.title)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "");
+        return s === slug;
+    });
+
+    if (index !== -1) {
+        setTimeout(() => showDetails(index, true), 300);
+    }
+});
+
+const tips = [
+    "Did you know? You can view mod galleries in full-screen mode!",
+    "Tip: Use tags to filter mods faster.",
+    "Pro Tip: Share your favorite mods with friends via the SHARE button.",
+    "Hint: New mods are marked with a golden NEW tag.",
+    "Fun Fact: HyteServe supports custom maps too!",
+];
+
+let tipInterval;
+
+const showLoadingScreen = (duration = 6000) => {
+    const loader = document.getElementById("loading-screen");
+    const tipBox = document.getElementById("loading-tip");
+    if (!loader || !tipBox) return;
+
+    loader.classList.remove("hidden");
+
+    // Pick a random tip initially
+    let tipIndex = Math.floor(Math.random() * tips.length);
+    tipBox.innerText = tips[tipIndex];
+
+    // Rotate tips every 1 second (optional if loading > 1s)
+    tipInterval = setInterval(() => {
+        tipIndex = (tipIndex + 1) % tips.length;
+        tipBox.innerText = tips[tipIndex];
+    }, 3000);
+
+    // Hide after duration
+    setTimeout(() => {
+        loader.classList.add("hidden");
+        clearInterval(tipInterval); // stop rotating tips
+    }, duration);
+};
+
+// Show loading on page load
+document.addEventListener("DOMContentLoaded", () => showLoadingScreen());
+
+
+// Optional: Show loading screen before rendering a new page (SPA navigation)
+const showPageWithLoader = (renderFn) => {
+    showLoadingScreen();
+    setTimeout(() => {
+        renderFn();
+    }, 1000); // match loading duration
+};
+
 
 // Run after the page loads
 document.addEventListener('DOMContentLoaded', syncSocialPreview);
