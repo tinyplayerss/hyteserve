@@ -1,50 +1,95 @@
 [
     {
-    "title": "MoreCharcoal",
-    "author": "tinyplayerss",
-    "date": "2026-01-17",
-    "description": "Gain more Charcoal from Burning Any Fuel Source!",
-    "longDescription": "Smelt any fuel source in the Campfire Bench and produce more charcoal than usual.<br><br>This mod is still in early development, so be aware that using certain fuel sources may behave differently than expected. For example:<br>- Sticks.<br>- Any wood log.<br>- Etc.<br><br>As a note: I had friends test this mod and it works. Since I do not own the Standard Edition of Hytale, I’m unable to live-code the mod in-game, so I used online resources during development. My goal is to eventually develop more mods directly from the game rather than relying on external tools.<br><br><b>Installation Guide:</b><br><br>1. Download the mod using the 'Download File' button provided on this page.<br><br>2. Locate your Hytale installation directory.<br><br>3. Open the UserData folder inside the Hytale directory. You should see a 'Mods' folder.<br><br>4. Drag and drop the extracted mod into the 'Mods' folder, then launch the game using the Hytale Launcher.<br><br>5. To enable the mod, go to your Worlds menu, right-click a world to edit it, and find the mod list under the world thumbnail. Check the box to enable the mod and save your changes.<br><br>6. Join the world where the mod is enabled, use your default Campfire, burn any fuel source, and you’ll see that using 2 fuel items produces 5 charcoal.",
-    "downloadUrl": "https://drive.google.com/file/d/1y0eOaJQ-2qMlbeX7dXXbUBTVxF8oAtw8/view?usp=sharing",
-    "icon": "https://images2.imgbox.com/f2/c0/ITCZ9vRk_o.png",
-    "version": "1.0.1",
-    "tags": ["Byproduct", "Production", "Smelting"],
-    "gallery": ["https://images2.imgbox.com/f1/04/abTF1WDT_o.png", "https://images2.imgbox.com/d3/cb/At4C5N15_o.png"]
+        "title": "MoreCharcoal",
+        "author": "tinyplayerss",
+        "date": "2026-01-17",
+        "description": "Gain more Charcoal from Burning Any Fuel Source!",
+        "longDescription": "Smelt any fuel source in the Campfire Bench and produce more charcoal than usual.<br><br>This mod is still in early development, so be aware that using certain fuel sources may behave differently than expected. For example:<br>- Sticks.<br>- Any wood log.<br>- Etc.<br><br>As a note: I had friends test this mod and it works. Since I do not own the Standard Edition of Hytale, I’m unable to live-code the mod in-game, so I used online resources during development. My goal is to eventually develop more mods directly from the game rather than relying on external tools.<br><br><b>Installation Guide:</b><br><br>1. Download the mod using the 'Download File' button provided on this page.<br><br>2. Locate your Hytale installation directory.<br><br>3. Open the UserData folder inside the Hytale directory. You should see a 'Mods' folder.<br><br>4. Drag and drop the extracted mod into the 'Mods' folder, then launch the game using the Hytale Launcher.<br><br>5. To enable the mod, go to your Worlds menu, right-click a world to edit it, and find the mod list under the world thumbnail. Check the box to enable the mod and save your changes.<br><br>6. Join the world where the mod is enabled, use your default Campfire, burn any fuel source, and you’ll see that using 2 fuel items produces 5 charcoal.",
+        "downloadUrl": "https://drive.google.com/file/d/1y0eOaJQ-2qMlbeX7dXXbUBTVxF8oAtw8/view?usp=sharing",
+        "icon": "https://images2.imgbox.com/f2/c0/ITCZ9vRk_o.png",
+        "version": "1.0.1",
+        "tags": [
+            "Byproduct",
+            "Production",
+            "Smelting"
+        ],
+        "gallery": [
+            "https://images2.imgbox.com/f1/04/abTF1WDT_o.png",
+            "https://images2.imgbox.com/d3/cb/At4C5N15_o.png"
+        ]
     },
     {
-    "title": "Kweebec Merchant Plus",
-    "author": "tinyplayerss",
-    "date": "2026-01-18",
-    "description": "Look at the Trade selections! and Trade when You find Kweebec Merchant",
-    "longDescription": "Enhance your journey with a specialized Kweebec Trading system! This mod overhauls the default Kweebec Merchant to act as a vital source for Life Essence and essential survival gear.<br><br><b>WORK IN PROGRESS (WIP):</b> This mod is in active development. I will be adding more botanical trades and refining the balance over time!<br><br><b>Featured Reward:</b><br>- <b>The Big Backpack:</b> A powerful early-to-mid game upgrade! This high-value item is now available through the merchant to help you carry more resources on your adventures.<br><br><b>Current Trade Selections:</b><br>- <b>Fixed Trades:</b> Exchange Tree Sap (20), Fiber (5), and Bamboo (25) for Life Essence.<br>- <b>Specialty Items:</b> Trade rare Poison Fruit for 75 Life Essence or a Crude Bed for Concentrated Life Essence.<br>- <b>Rotating Pool:</b> A dynamic slot that refreshes every 3 days with bulk Mushroom Flatcaps, Mushroom Salads, or a rare high-tier trade for 100 Boom Powder.<br><br><b>Have a Suggestion?</b> I want to hear from you! If there are specific plant-based items or resources you think should be tradable for Life Essence, please leave a comment. Your suggestions could be included in the next update!<br><br>As a note: I had friends test this mod and it works. Since I do not own the Standard Edition of Hytale, I’m unable to live-code the mod in-game, so I used online resources during development. My goal is to eventually develop more mods directly from the game rather than relying on external tools.<br><br><b>Installation Guide:</b><br><br>1. Download the mod using the 'Download File' button.<br>2. Locate your Hytale installation directory.<br>3. Open the UserData/Mods folder.<br>4. Drag and drop the extracted mod folder into 'Mods'.<br>5. In the Hytale World menu, edit your world and enable the mod in the list.<br>6. Join your world and find a Kweebec Merchant to start trading! <b>Note:</b> If you update the mod, you must rejoin your world to see the new trade selections.",
-    "downloadUrl": "https://drive.google.com/file/d/1EezszT0scR1_iOyQinE1LOPd2rTHhar_/view?usp=sharing",
-    "icon": "https://images2.imgbox.com/b1/3a/q4dVaicL_o.png",
-    "version": "1.0.0",
-    "tags": ["Trader+", "NPC"],
-    "gallery": ["https://images2.imgbox.com/bc/ca/CUTi6jTb_o.png"]
+        "title": "Kweebec Merchant Plus",
+        "author": "tinyplayerss",
+        "date": "2026-01-18",
+        "description": "Look at the Trade selections! and Trade when You find Kweebec Merchant",
+        "longDescription": "Enhance your journey with a specialized Kweebec Trading system! This mod overhauls the default Kweebec Merchant to act as a vital source for Life Essence and essential survival gear.<br><br><b>WORK IN PROGRESS (WIP):</b> This mod is in active development. I will be adding more botanical trades and refining the balance over time!<br><br><b>Featured Reward:</b><br>- <b>The Big Backpack:</b> A powerful early-to-mid game upgrade! This high-value item is now available through the merchant to help you carry more resources on your adventures.<br><br><b>Current Trade Selections:</b><br>- <b>Fixed Trades:</b> Exchange Tree Sap (20), Fiber (5), and Bamboo (25) for Life Essence.<br>- <b>Specialty Items:</b> Trade rare Poison Fruit for 75 Life Essence or a Crude Bed for Concentrated Life Essence.<br>- <b>Rotating Pool:</b> A dynamic slot that refreshes every 3 days with bulk Mushroom Flatcaps, Mushroom Salads, or a rare high-tier trade for 100 Boom Powder.<br><br><b>Have a Suggestion?</b> I want to hear from you! If there are specific plant-based items or resources you think should be tradable for Life Essence, please leave a comment. Your suggestions could be included in the next update!<br><br>As a note: I had friends test this mod and it works. Since I do not own the Standard Edition of Hytale, I’m unable to live-code the mod in-game, so I used online resources during development. My goal is to eventually develop more mods directly from the game rather than relying on external tools.<br><br><b>Installation Guide:</b><br><br>1. Download the mod using the 'Download File' button.<br>2. Locate your Hytale installation directory.<br>3. Open the UserData/Mods folder.<br>4. Drag and drop the extracted mod folder into 'Mods'.<br>5. In the Hytale World menu, edit your world and enable the mod in the list.<br>6. Join your world and find a Kweebec Merchant to start trading! <b>Note:</b> If you update the mod, you must rejoin your world to see the new trade selections.",
+        "downloadUrl": "https://drive.google.com/file/d/1EezszT0scR1_iOyQinE1LOPd2rTHhar_/view?usp=sharing",
+        "icon": "https://images2.imgbox.com/b1/3a/q4dVaicL_o.png",
+        "version": "1.0.0",
+        "tags": [
+            "Trader+",
+            "NPC"
+        ],
+        "gallery": [
+            "https://images2.imgbox.com/bc/ca/CUTi6jTb_o.png"
+        ]
     },
     {
-    "title": "Adds Glass Blocks",
-    "author": "tinyplayerss",
-    "date": "2026-01-19",
-    "description": "A high-quality building mod adding 5 unique glass variants with custom frames and overgrown textures.",
-    "longDescription": "Transform your builds with the Aesthetic Glass Expansion! This mod moves beyond basic glass by providing a set of 5 specialized variants designed for high-end architecture and environmental storytelling.<br><br><b>Included Glass Variants:</b><br>- <b>Normal Glass Block:</b> The standard high-definition framed window for everyday builds.<br>- <b>Stone Glass Block:</b> A heavy-duty variant featuring a reinforced stone-style frame for industrial or dwarven designs.<br>- <b>Mossy Glass Block:</b> A fan-favorite aesthetic block featuring creeping vines, forest overgrowth, and a unique color-gradient reflection.<br>- <b>Clear Glass (Minecraft Style):</b> A borderless, seamless variant designed for massive floor-to-ceiling windows and unobstructed views.<br>- <b>Diamond Glass Block:</b> Features an elegant geometric diamond frame, perfect for cathedrals, palaces, and decorative interiors.<br><br><b>Credits & Special Thanks:</b><br>A huge thank you to <b>Blockhead1800</b>, who was instrumental in making this mod a reality! Their technical expertise and work on the underlying systems were responsible for making these glass variants fully functional in-game.<br><br><b>Future Roadmap (Coming Soon):</b><br>As development continues and my pixel art techniques evolve, I will be introducing more advanced glass types, including:<br>- <b>Stained Glass Murals:</b> Hand-painted decorative scenes for grand halls.<br>- <b>Etched & Frosted Patterns:</b> Intricate sandblasted designs for modern privacy.<br>- <b>Cracked & Weathered Variants:</b> Specialized textures for post-apocalyptic or ancient builds.<br>- <b>Reinforced Wired Glass:</b> Industrial-grade safety glass with metallic mesh inlays.<br><br><b>Key Features:</b><br>- Full 32px density matching Hytale’s vanilla art style.<br><br><b>Installation Guide:</b><br>1. Download the mod and locate your Hytale installation directory.<br>2. Drag the extracted folder into <b>UserData/Mods</b>.<br>3. Enable 'Adds Glass Blocks' in your World Edit menu.<br>4. Find the new blocks in your Builder's Workbench! And Start Decorating your Base or Houses!",
-    "downloadUrl": "https://drive.google.com/file/d/1AB6ZBFB5aJh9pGIg1r5AGiTo4p-pLyr7/view?usp=sharing",
-    "icon": "https://images2.imgbox.com/19/66/yUlDPn4f_o.png",
-    "version": "1.0.0",
-    "tags": ["New Blocks", "Deco", "Glass", "Building"],
-    "gallery": ["https://images2.imgbox.com/66/64/3P6HXAOv_o.png", "https://images2.imgbox.com/0b/0c/nte6Mc1g_o.png"]
+        "title": "Adds Glass Blocks",
+        "author": "tinyplayerss",
+        "date": "2026-01-19",
+        "description": "A high-quality building mod adding 5 unique glass variants with custom frames and overgrown textures.",
+        "longDescription": "Transform your builds with the Aesthetic Glass Expansion! This mod moves beyond basic glass by providing a set of 5 specialized variants designed for high-end architecture and environmental storytelling.<br><br><b>Included Glass Variants:</b><br>- <b>Normal Glass Block:</b> The standard high-definition framed window for everyday builds.<br>- <b>Stone Glass Block:</b> A heavy-duty variant featuring a reinforced stone-style frame for industrial or dwarven designs.<br>- <b>Mossy Glass Block:</b> A fan-favorite aesthetic block featuring creeping vines, forest overgrowth, and a unique color-gradient reflection.<br>- <b>Clear Glass (Minecraft Style):</b> A borderless, seamless variant designed for massive floor-to-ceiling windows and unobstructed views.<br>- <b>Diamond Glass Block:</b> Features an elegant geometric diamond frame, perfect for cathedrals, palaces, and decorative interiors.<br><br><b>Credits & Special Thanks:</b><br>A huge thank you to <b>Blockhead1800</b>, who was instrumental in making this mod a reality! Their technical expertise and work on the underlying systems were responsible for making these glass variants fully functional in-game.<br><br><b>Future Roadmap (Coming Soon):</b><br>As development continues and my pixel art techniques evolve, I will be introducing more advanced glass types, including:<br>- <b>Stained Glass Murals:</b> Hand-painted decorative scenes for grand halls.<br>- <b>Etched & Frosted Patterns:</b> Intricate sandblasted designs for modern privacy.<br>- <b>Cracked & Weathered Variants:</b> Specialized textures for post-apocalyptic or ancient builds.<br>- <b>Reinforced Wired Glass:</b> Industrial-grade safety glass with metallic mesh inlays.<br><br><b>Key Features:</b><br>- Full 32px density matching Hytale’s vanilla art style.<br><br><b>Installation Guide:</b><br>1. Download the mod and locate your Hytale installation directory.<br>2. Drag the extracted folder into <b>UserData/Mods</b>.<br>3. Enable 'Adds Glass Blocks' in your World Edit menu.<br>4. Find the new blocks in your Builder's Workbench! And Start Decorating your Base or Houses!",
+        "downloadUrl": "https://drive.google.com/file/d/1AB6ZBFB5aJh9pGIg1r5AGiTo4p-pLyr7/view?usp=sharing",
+        "icon": "https://images2.imgbox.com/19/66/yUlDPn4f_o.png",
+        "version": "1.0.0",
+        "tags": [
+            "New Blocks",
+            "Deco",
+            "Glass",
+            "Building"
+        ],
+        "gallery": [
+            "https://images2.imgbox.com/66/64/3P6HXAOv_o.png",
+            "https://images2.imgbox.com/0b/0c/nte6Mc1g_o.png"
+        ]
     },
     {
-    "title": "Stacked Meat!",
-    "author": "tinyplayerss",
-    "date": "2026-01-21",
-    "description": "Makes Meat Products Stack to 100!",
-    "longDescription": "Tired of your inventory looking like a meat locker explosion? <b>Stacked Meat!</b> is here to save your slots and your sanity! This mod cranks up the stack size of all meat products from 25 to 100, so you can carry way more bacon, steak, and chicken without wasting space.<br><br><b>Why You'll Love It:</b><br>- Stack all your meat up to 100 per slot — finally, no more juggling four slots just for 25 pieces each.<br>- Perfect for hungry adventurers, ambitious cooks, or anyone who hates wasting inventory space.<br>- Makes farming, cooking, and survival life a whole lot smoother.<br><br><b>Bonus Perks:</b><br>- Less clutter, more freedom to hoard other loot.<br>- Streamlined crafting and cooking — you’ll be the Gordon Ramsay of Hytale.<br><br><b>Shoutouts:</b><br>A huge thanks to everyone testing <b>Stacked Meat!</b> and making sure no slab of steak gets left behind.<br><br><b>Coming Soon:</b><br>- Optional modded meat support.<br>- Custom stack sizes for players who like things extra meaty.<br><br><b>How to Install:</b><br>1. Download the mod and locate your Hytale installation folder.<br>2. Drop the extracted folder into <b>UserData/Mods</b>.<br>3. Enable 'Stacked Meat' in your World Edit menu.<br>4. All meat is now stackable up to 100 — go forth and hoard deliciousness!",
-    "downloadUrl": "https://drive.google.com/file/d/1AB6ZBFB5aJh9pGIg1r5AGiTo4p-pLyr7/view?usp=sharing",
-    "icon": "https://images2.imgbox.com/22/66/Dj2JeucP_o.png",
-    "version": "1.0.0",
-    "tags": ["Cooking", "Consumables", "Stack Size"],
-    "gallery": ["https://images2.imgbox.com/09/9a/N6YIT8nY_o.png"]
+        "title": "Stacked Meat!",
+        "author": "tinyplayerss",
+        "date": "2026-01-21",
+        "description": "Makes Meat Products Stack to 100!",
+        "longDescription": "Tired of your inventory looking like a meat locker explosion? <b>Stacked Meat!</b> is here to save your slots and your sanity! This mod cranks up the stack size of all meat products from 25 to 100, so you can carry way more bacon, steak, and chicken without wasting space.<br><br><b>Why You'll Love It:</b><br>- Stack all your meat up to 100 per slot — finally, no more juggling four slots just for 25 pieces each.<br>- Perfect for hungry adventurers, ambitious cooks, or anyone who hates wasting inventory space.<br>- Makes farming, cooking, and survival life a whole lot smoother.<br><br><b>Bonus Perks:</b><br>- Less clutter, more freedom to hoard other loot.<br>- Streamlined crafting and cooking — you’ll be the Gordon Ramsay of Hytale.<br><br><b>Shoutouts:</b><br>A huge thanks to everyone testing <b>Stacked Meat!</b> and making sure no slab of steak gets left behind.<br><br><b>Coming Soon:</b><br>- Optional modded meat support.<br>- Custom stack sizes for players who like things extra meaty.<br><br><b>How to Install:</b><br>1. Download the mod and locate your Hytale installation folder.<br>2. Drop the extracted folder into <b>UserData/Mods</b>.<br>3. Enable 'Stacked Meat' in your World Edit menu.<br>4. All meat is now stackable up to 100 — go forth and hoard deliciousness!",
+        "downloadUrl": "https://drive.google.com/file/d/1AB6ZBFB5aJh9pGIg1r5AGiTo4p-pLyr7/view?usp=sharing",
+        "icon": "https://images2.imgbox.com/22/66/Dj2JeucP_o.png",
+        "version": "1.0.0",
+        "tags": [
+            "Cooking",
+            "Consumables",
+            "Stack Size"
+        ],
+        "gallery": [
+            "https://images2.imgbox.com/09/9a/N6YIT8nY_o.png"
+        ]
+    },
+    {
+        "title": "Dani's Milk!",
+        "author": "tinyplayerss",
+        "date": "2026-01-23",
+        "description": "Heal Your Health Far Greater then any Potion!",
+        "longDescription": "Tired of weak potions barely keeping you alive? <b>Dani’s Milk!</b> is here to turn every sip into a lifesaver! This mod upgrades milk into a powerful healing drink that restores your health far better than any standard potion, giving you a reliable way to survive tougher fights and longer adventures.<br><br><b>Why You'll Love It:</b><br>- Drink milk to heal a massive amount of health instantly.<br>- Stronger than most potions — perfect for combat, exploration, and emergencies.<br>- Simple, balanced, and fits naturally into Hytale’s survival gameplay.<br><br><b>Bonus Perks:</b><br>- Makes farming and using milk actually worthwhile.<br>- Great for boss fights, dungeon runs, and risky builds.<br>- Keeps your inventory useful without adding complicated systems.<br><br><b>Related Information:</b><br><b>Dani</b> is the legendary YouTube creator known for using milk in his games and videos. This consumable is inspired by his obsession with milk and represents the <b>Legendary Milk Blessed from the Heavens</b> — a drink worthy of champions who need that extra power to survive.<br><br><b>Shoutouts:</b><br>Huge thanks to Blockhead1800 For his Technical Help in Making this Mod Possible! <b>Dani’s Milk!</b> and helping balance the ultimate survival drink.<br><br><b>Coming Soon:</b><br>- Optional effects like regeneration or buffs.<br>- Compatibility tweaks for other consumable mods.<br><br><b>How to Install:</b><br>1. Download the mod and locate your Hytale installation folder.<br>2. Drop the extracted folder into <b>UserData/Mods</b>.<br>3. Enable 'Dani’s Milk!' in your World Edit menu.<br>4. Grab some milk and start healing like a legend!",
+        "downloadUrl": "https://drive.google.com/file/d/1PApNrqx3fPaULTa5l1Qpn5sR5ZTGiHBx/view?usp=sharing",
+        "icon": "https://images2.imgbox.com/c6/36/d0YbRRjB_o.png",
+        "version": "1.0.0",
+        "tags": [
+            "Cooking",
+            "Consumables",
+            "Stack Size"
+        ],
+        "gallery": [
+            "https://images2.imgbox.com/f1/43/4Tj8qLzs_o.png",
+            "https://images2.imgbox.com/55/22/opA9L6qG_o.png"
+        ]
     }
 ]
