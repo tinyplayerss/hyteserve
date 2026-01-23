@@ -141,18 +141,27 @@ body {
     top: 100px;
     flex-shrink: 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 10px;
 }
 
 /* --- Search & Filters --- */
 .search-box {
     width: 100%;
     background: #0b141d;
-    border: 1px solid #3d4d5e;
     color: white;
     padding: 12px;
     margin-bottom: 20px;
     font-family: 'Oswald';
     box-sizing: border-box;
+    border-radius: 10px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #3d4d5e; /* Matching your existing card borders */
+}
+
+.search-box:focus {
+    outline: none;
+    border: 1px solid var(--hytale-gold); /* Using your engine's specific gold hex */
+    box-shadow: 0 0 8px rgba(243, 174, 50, 0.2); /* Subtle glow */
 }
 
 .filter-group h4 {
@@ -186,7 +195,7 @@ body {
     height: 16px;
 }
 
-/* --- Mod Grid & Cards --- */
+/* ---  Grid & Cards --- */
 .grid-container {
     flex-grow: 1;
     display: grid;
@@ -519,4 +528,66 @@ body {
     text-align: center;
     max-width: 300px;
     font-family: 'Arial', sans-serif;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+    /* FIX: This ensures it matches the width of your main content */
+    width: 95%; /* Use a percentage to allow for site-wide padding */
+    max-width: 1400px; /* Adjust this number to match your site's main container */
+    margin: 0 auto 25px auto; /* Centering the bar */
+    
+    background: #1a242d;
+    border: 1px solid #3d4d5e;
+    border-radius: 12px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* To eliminate that "overhang" on the right, ensure the parent has no overflow */
+.stats-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.stat-item {
+    text-align: center;
+    /* Vertically separates the items with a thin line */
+    border-right: 1px solid #3d4d5e;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.counter-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #f3ae32;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: #a0b0c0;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 0 15px 25px 15px; /* Adds side breathing room on mobile */
+    }
+    .stat-item:nth-child(2) {
+        border-right: none;
+    }
 }
