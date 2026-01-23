@@ -2,7 +2,7 @@
   {
     "name": "Discord",
     "icon": "fa-brands fa-discord",
-    "url": "https://discord.gg/wh8QgpZc",
+    "url": "https://discord.gg/3XTc3rWH93",
     "counterApi": "https://discord.com/api/v9/invites/3XTc3rWH93?with_counts=true",
     "counterField": "approximate_member_count",
     "displayCounter": true
@@ -15,3 +15,4 @@
     "displayCounter": true
   }
 ]
+
