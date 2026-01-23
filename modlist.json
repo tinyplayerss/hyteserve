@@ -83,9 +83,9 @@
         "icon": "https://images2.imgbox.com/c6/36/d0YbRRjB_o.png",
         "version": "1.0.0",
         "tags": [
-            "Cooking",
+            "Craftable",
             "Consumables",
-            "Stack Size"
+            "Potions"
         ],
         "gallery": [
             "https://images2.imgbox.com/f1/43/4Tj8qLzs_o.png",
@@ -93,3 +93,4 @@
         ]
     }
 ]
+
