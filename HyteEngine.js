@@ -37,6 +37,66 @@ const isNew = (dateString) => {
 };
 
 /**
+ * Helper to animate individual counters with 10+ rounding logic
+ */
+const startCounterAnim = (elementId, totalValue) => {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    let current = 0;
+    const duration = 1500;
+    const stepTime = totalValue > 0 ? Math.abs(Math.floor(duration / totalValue)) : 0;
+
+    if (totalValue === 0) { el.innerText = "0"; return; }
+
+    const timer = setInterval(() => {
+        current++;
+        if (current % 10 === 0 && totalValue > current) {
+            el.innerText = `${current}+`;
+        } else if (current >= totalValue) {
+            el.innerText = totalValue;
+            clearInterval(timer);
+        } else {
+            el.innerText = current;
+        }
+    }, stepTime);
+};
+
+/**
+ * Enhanced SEO function to also update UI counters
+ */
+async function updateSiteSEOAndCounters() {
+    const sources = {
+        'modlist.json': 'count-mods',
+        'maplist.json': 'count-maps',
+        'bloglist.json': 'count-blogs',
+        'wikihytale.json': 'count-wiki'
+    };
+
+    try {
+        const results = await Promise.allSettled(
+            Object.keys(sources).map(url => fetch(url).then(res => res.json()))
+        );
+
+        results.forEach((result, index) => {
+            if (result.status === 'fulfilled' && Array.isArray(result.value)) {
+                const url = Object.keys(sources)[index];
+                const elementId = sources[url];
+                const count = result.value.length;
+                
+                // Trigger the individual animation
+                startCounterAnim(elementId, count);
+            }
+        });
+    } catch (err) {
+        console.error("Counter Engine Error:", err);
+    }
+}
+
+// Ensure this runs when the page loads
+document.addEventListener('DOMContentLoaded', updateSiteSEOAndCounters);
+
+/**
  * Core Initialization
  */
 const initHyteEngine = async (source = 'modlist.json') => {
@@ -280,20 +340,57 @@ const setupEventListeners = () => {
     }
 };
 
+/**
+ * Generates the Filter UI with Dynamic Tag Counters
+ */
 const generateFilterUI = () => {
     const filterContainer = document.getElementById('filter-section');
     if (!filterContainer) return;
-    const tags = new Set();
-    allMods.forEach(mod => { if (mod.tags) mod.tags.forEach(t => tags.add(t)); });
-    tags.forEach(tag => {
+
+    // 1. Calculate tag frequencies
+    const tagCounts = {};
+    allMods.forEach(mod => {
+        if (mod.tags && Array.isArray(mod.tags)) {
+            mod.tags.forEach(tag => {
+                tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+            });
+        }
+    });
+
+    // 2. Clear existing items but keep the header if you have one
+    filterContainer.innerHTML = '<h4>Filter by Type</h4>';
+
+    // 3. Sort tags alphabetically and create the UI elements
+    const sortedTags = Object.keys(tagCounts).sort();
+
+    sortedTags.forEach(tag => {
+        const count = tagCounts[tag];
         const label = document.createElement('label');
         label.className = 'filter-item';
-        label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+        
+        // Inline styles to match your UI and handle the count bubble
+        label.style.display = 'flex';
+        label.style.justifyContent = 'space-between';
+        label.style.alignItems = 'center';
+        label.style.cursor = 'pointer';
+        label.style.padding = '5px 0';
+
+        label.innerHTML = `
+            <div style="display:flex; align-items:center; gap:8px;">
+                <input type="checkbox" value="${tag}" ${activeTags.has(tag) ? 'checked' : ''}>
+                <span>${tag}</span>
+            </div>
+            <span class="tag-count" style="background: rgba(243,174,50,0.15); color: #f3ae32; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; border: 1px solid rgba(243,174,50,0.3);">
+                ${count}
+            </span>
+        `;
+
         label.querySelector('input').addEventListener('change', (e) => {
             if (e.target.checked) activeTags.add(tag);
             else activeTags.delete(tag);
             applyFilters();
         });
+
         filterContainer.appendChild(label);
     });
 };
