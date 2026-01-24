@@ -234,8 +234,11 @@ const renderPage = (page) => {
 };
 
 /**
- * Generates the Detailed View
+ * UNIVERSAL NAVIGATION & SHARING SYSTEM
+ * Replaces the old slug/share logic to support cross-page deep-linking.
  */
+
+// 1. Updated showDetails URL Logic (Includes Source Context)
 const showDetails = (modIndex, skipPush = false) => {
     const mod = allMods[modIndex];
     const mainView = document.getElementById("main-view");
@@ -250,8 +253,9 @@ const showDetails = (modIndex, skipPush = false) => {
             .replace(/(^-|-$)/g, "");
 
         const url = new URL(window.location);
+        url.searchParams.set("source", currentSource); // Save which list we are in
         url.searchParams.set("card", slug);
-        window.history.pushState({ modIndex }, "", url);
+        window.history.pushState({ modIndex, source: currentSource }, "", url);
     }
 
     if (mainView) mainView.style.display = "none";
@@ -262,15 +266,12 @@ const showDetails = (modIndex, skipPush = false) => {
     detailsView.innerHTML = `
         <div class="details-container">
             <button class="back-btn" onclick="closeDetails()">← BACK TO LIST</button>
-
             <div class="details-header">
                 ${(isBlog || isWiki) ? '' : `<img src="${mod.icon}" class="mod-icon" style="width:120px; height:120px;">`}
-
                 <div class="details-header-text">
                     ${(isBlog || isWiki) && mod.category ? `<span class="blog-category-tag">${mod.category}</span>` : ''}
                     <h2>${mod.title} ${(!isBlog && !isWiki) ? `<span class="mod-version-tag">${mod.version}</span>` : ''}</h2>
                     <p class="mod-author">By ${mod.author} ${mod.date ? `on ${mod.date}` : ''}</p>
-
                     <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
                         ${(!isBlog && !isWiki) ? `<a href="${finalDownloadUrl}" target="_blank" class="download-btn">DOWNLOAD FILE</a>` : ''}
                         <button onclick="shareCurrentCard()" class="download-btn" style="background:transparent; display:flex; align-items:center; gap:8px;">
@@ -280,9 +281,7 @@ const showDetails = (modIndex, skipPush = false) => {
                     </div>
                 </div>
             </div>
-
             <hr style="border:0; border-top:1px solid #3d4d5e; margin: 30px 0;">
-
             <div class="content-body">
                 ${(isBlog || isWiki) ? `<img src="${mod.icon}" class="blog-hero-img" style="width:100%; border-radius:10px; margin-bottom:20px;">` : ''}
                 <h3>${(isBlog || isWiki) ? 'ARTICLE CONTENT' : 'DESCRIPTION'}</h3>
@@ -290,14 +289,12 @@ const showDetails = (modIndex, skipPush = false) => {
                     ${(mod.longDescription || mod.description)}
                 </div>
             </div>
-
             ${(!isBlog && !isWiki) && mod.gallery && mod.gallery.length > 0 ? `
                 <h3>GALLERY</h3>
                 <div class="gallery-grid">
                     ${mod.gallery.map(img => `<img src="${img}" class="gallery-img">`).join('')}
                 </div>
             ` : ''}
-
             <div class="comment-wrapper">
                 <hr style="border:0; border-top:1px solid #3d4d5e; margin: 50px 0 30px;">
                 <h3 style="color: #f3ae32;">COMMENTS & DISCUSSIONS</h3>
@@ -309,6 +306,68 @@ const showDetails = (modIndex, skipPush = false) => {
     loadUtterances(mod.title);
     window.scrollTo({ top: 400, behavior: 'smooth' });
 };
+
+// 2. Updated Global Share Function
+function shareCurrentCard() {
+    const url = new URL(window.location.href);
+    
+    // Ensure the current source is included in the shared link even if not in details view
+    url.searchParams.set("source", currentSource);
+
+    const shareData = {
+        title: document.title || "HyteServe",
+        text: "Check out this content on HyteServe!",
+        url: url.toString()
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData).catch(console.error);
+    } else {
+        navigator.clipboard.writeText(url.toString());
+        alert("Link copied to clipboard!");
+    }
+}
+
+// 3. Updated Close logic to preserve the current source page
+function closeDetails() {
+    const mainView = document.getElementById("main-view");
+    const detailsView = document.getElementById("details-view");
+
+    if (mainView) mainView.style.display = "block";
+    if (detailsView) detailsView.style.display = "none";
+
+    const url = new URL(window.location);
+    url.searchParams.delete("card"); 
+    // We keep "source" so the user stays on the Maps/Wiki/etc page they were on
+    window.history.pushState({}, "", url);
+}
+
+// 4. Universal Loader (Handles Shared Links for ANY page or card)
+window.addEventListener("load", async () => {
+    const params = new URLSearchParams(window.location.search);
+    const sharedSource = params.get("source");
+    const slug = params.get("card");
+
+    // If a shared link has a specific source, switch to it first
+    if (sharedSource && sharedSource !== currentSource) {
+        await initHyteEngine(sharedSource);
+    }
+
+    if (slug) {
+        // Find item by slug in the newly loaded source
+        const index = allMods.findIndex(item => {
+            const s = (item.slug || item.title)
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "");
+            return s === slug;
+        });
+
+        if (index !== -1) {
+            setTimeout(() => showDetails(index, true), 300);
+        }
+    }
+});
 
 
 /**
