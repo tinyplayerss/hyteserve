@@ -18,8 +18,19 @@
     "description": "We have implemented a patch to block malicious redirects from our ad provider.",
     "longDescription": "Maintaining a safe and seamless experience on HyteServe is my top priority. Recently, I noticed that some Adsterra ads were causing unauthorized redirects, taking users away from our site to external pages. I have officially deployed a patch to address this.<br><br>The update includes stricter filtering on the ad scripts and the implementation of 'sandbox' attributes where possible to prevent the ads from triggering window-level redirects. This ensures that while ads still support the site, they can no longer hijack your browsing session.<br><br>If you still encounter any strange behavior or unexpected pop-ups, please reach out so I can continue to refine the security of our ad implementation.",
     "tags": ["Security", "Update", "Adsterra"]
+  },
+  {
+    "title": "New Hytale Update just Dropped! - Update 2",
+    "author": "tinyplayerss",
+    "date": "2026-01-24",
+    "category": "Mod Support",
+    "icon": "https://cdn.hytale.com/variants/blog_cover_e9ac7f05f9c5f040aed38eb226a1872d_blog_cover_option2.png",
+    "description": "As far as i can Test my Current Mods still Works with Backwards Compatiblity",
+    "longDescription": "Hytale Update 2 is finally here, and as a solo developer keeping HyteServe alive, I’ve been diving deep into the patch notes to see how this affects our modding ecosystem. The big headline for me is <b>WorldGen V2</b>—the team has released public documentation for modders, which is a huge win for future custom biomes. I’ve already confirmed that my current mods are holding up well with backwards compatibility, but there's a lot to unpack under the hood.<br><br><b>Performance & Stability:</b> The technical side got a major boost with a new server auto-update system and the <i>UpdateModule</i> core plugin. This makes managing server reboots and staged updates much cleaner. They’ve also overhauled shadow rendering and fixed those annoying weather transitions that used to feel a bit jarring. For those of us building, the <b>Asset Editor</b> now includes documentation directly in the tooltips—no more guessing what a specific node does!<br><br><b>System Improvements:</b> The UI/UX changes are massive for quality of life. We finally have an official FPS counter overlay, and the inventory has been optimized with ‘Quick Action’ shortcuts (Q/E/R/T) for stacking and sorting. Combat also feels deeper with the introduction of <b>Necromancy</b>; you can now raise skeletal minions from bone piles, which adds a whole new layer to PvE progression. Oh, and for the farmers out there, ‘Eternal Crops’ no longer break from accidental weapon swings—a small fix that saves a lot of frustration.<br><br>I'll be monitoring the Mods I've got in the Mod library of HyteServe to ensure No mod would break on Hytale Update 2 Changes, And Report any Mods that dont work comment below to tell me about Mods not working so that i can ensure to make sure that Mod or Mods work as Expected!",
+    "tags": ["Update", "Hytale", "PatchNotes"]
   }
 ]
+
 
 
 
